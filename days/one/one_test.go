@@ -6,19 +6,19 @@ import (
 )
 
 func TestPartOneExample(t *testing.T) {
-	assert(t, partOne, io.ReadExample, 0)
+	assert(t, partOne, io.ReadExample, 3)
 }
 
 func TestPartOne(t *testing.T) {
-	assert(t, partOne, io.ReadProblem, 0)
+	assert(t, partOne, io.ReadProblem, 997)
 }
 
 func TestPartTwoExample(t *testing.T) {
-	assert(t, partTwo, io.ReadExample, 0)
+	assert(t, partTwo, io.ReadExample, 6)
 }
 
 func TestPartTwo(t *testing.T) {
-	assert(t, partTwo, io.ReadProblem, 0)
+	assert(t, partTwo, io.ReadProblem, 5978)
 }
 
 func assert(t *testing.T, solver func(string) (int, error), reader func() (string, error), expected int) {

@@ -7,16 +7,16 @@ import (
 )
 
 type ProductIdRange struct {
-	Start int64
-	End   int64
+	start int64
+	end   int64
 }
 
 func (r ProductIdRange) StartNumberOfDigits() int {
-	return len(strconv.FormatInt(r.Start, 10))
+	return len(strconv.FormatInt(r.start, 10))
 }
 
 func (r ProductIdRange) EndNumberOfDigits() int {
-	return len(strconv.FormatInt(r.End, 10))
+	return len(strconv.FormatInt(r.end, 10))
 }
 
 func partOne(input string) (int64, error) {
@@ -80,11 +80,11 @@ func countInvalidProductIds(r ProductIdRange, maxRepeat int) int64 {
 					repeated.WriteString(strconv.Itoa(i))
 				}
 				scaled, _ := strconv.ParseInt(repeated.String(), 10, 64)
-				if scaled > r.End {
+				if scaled > r.end {
 					break
 				}
 
-				if scaled >= r.Start && !seen[scaled] {
+				if scaled >= r.start && !seen[scaled] {
 					invalid += scaled
 					seen[scaled] = true
 				}

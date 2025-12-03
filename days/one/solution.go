@@ -7,19 +7,19 @@ import (
 )
 
 type Turn struct {
-	Direction rune
-	Ticks     int
+	direction rune
+	ticks     int
 }
 
 func (t Turn) DirectionalTicks() int {
-	if t.Direction == 'L' {
-		return -t.Ticks % 100
+	if t.direction == 'L' {
+		return -t.ticks % 100
 	}
-	return t.Ticks % 100
+	return t.ticks % 100
 }
 
 func (t Turn) Rotations() int {
-	return int(math.Abs(float64(t.Ticks / 100)))
+	return int(math.Abs(float64(t.ticks / 100)))
 }
 
 func partOne(input string) (int64, error) {
@@ -69,7 +69,7 @@ func parse(input string) ([]Turn, error) {
 			return nil, err
 		}
 
-		turns = append(turns, Turn{Direction: rune(line[0]), Ticks: ticks})
+		turns = append(turns, Turn{direction: rune(line[0]), ticks: ticks})
 	}
 
 	return turns, nil
